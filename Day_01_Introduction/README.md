@@ -304,7 +304,7 @@ Upload, then find the blinking user LED (not the separate charging light).
 
 The original timing is **300 ms on and 700 ms off**: approximately one second per cycle.
 
-**Try:** change the timings to 100 and 900. The overall cycle stays the same, but the illuminated part becomes shorter. Predict the difference before uploading.
+**Try:** change the timings to 100 and 900. Predict the difference, then upload and compare.
 
 - `pinMode()` configures an output.
 - `digitalWrite()` changes its level.
@@ -342,6 +342,9 @@ cycleCount = cycleCount + 1;
 Serial.print("cycle=");
 Serial.println(cycleCount);
 ```
+
+The complete sketch:
+
 ```cpp
 // MISHEARD CITY | Practical 1 | 02 - Blink with variables and serial feedback
 // Board: Seeed Studio XIAO ESP32S3 Sense.
