@@ -20,7 +20,7 @@ Use short lowercase labels with underscores in the code. Keep the fuller definit
 
 ## Choose a reading
 
-Choose one starting point. You do not need to read a whole book.
+Choose one starting point.
 
 | Starting point | Passage to explore in relation to your project |
 |---|---|
@@ -48,6 +48,6 @@ Prepare one page and a small image sheet:
 - One or two search phrases for each category.
 - One decision you would like the class to discuss.
 
-A film reference or early visual idea is welcome; a finished storyboard is not required.
+A film reference or early visual idea is welcome.
 
 *Bring this to the Day 2 tutorial on Thursday 8 October.*
