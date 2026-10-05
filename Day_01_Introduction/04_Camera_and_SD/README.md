@@ -300,22 +300,6 @@ Open the files. Compare what you saw in front of the camera with what the photog
 
 The starting resolution is **QVGA: 320 × 240 pixels**. Once capture works, you can change `FRAMESIZE_QVGA` to `FRAMESIZE_VGA` for 640 × 480 and compare detail and file size. Change one setting at a time.
 
-## A six-image exercise
-
-Choose one subject: a plant, a worn surface, some cables or an object near a window. For this first exercise, keep identifiable people out of the frame.
-
-Capture:
-
-- Two views from different distances.
-- Two views with a different angle or background.
-- Two views under different available lighting.
-
-| Filename | Subject | Framing / distance | Light / background | Observation |
-|---|---|---|---|---|
-| | | | | |
-
-Choose two photographs of the same subject that look noticeably different, and explain one detail that became clearer or disappeared.
-
 ## Troubleshooting
 
 | Symptom | First thing to inspect |
