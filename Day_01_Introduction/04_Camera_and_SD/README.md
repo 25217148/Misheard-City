@@ -74,9 +74,7 @@ The five `#include` lines refer to header files supplied by that board package:
 
 **No additional Library Manager installation is needed for these five headers in Arduino IDE with the ESP32 package.** In particular, do not install a similarly named camera or SD library for a different board.
 
-`#include` makes declarations available during compilation; it is not an installation command. Double quotes and angle brackets affect how headers are searched for, not whether a library is bundled or needs installation. Arduino normally adds `Arduino.h` automatically when preparing an `.ino` sketch; this example includes it explicitly.
-
-Espressif's [camera installation instructions](https://github.com/espressif/esp32-camera#arduino-ide) confirm that the camera driver needs no separate installation when using the Arduino ESP32 core in Arduino IDE. Its ESP-IDF and PlatformIO instructions are for other development environments; you do not need them.
+`#include` is not an installation command. The camera driver also needs no separate installation in Arduino IDE; skip Espressif's ESP-IDF and PlatformIO instructions.
 
 ### If a header cannot be found
 
