@@ -4,7 +4,7 @@
 
 [Back to Arduino](../README.md) · [Reading and research task](../05_Research/README.md)
 
-We move from controlling a light to taking a photograph. The camera captures a scene, the program holds it briefly in memory, and the microSD card stores it as a JPEG file. You trigger each photograph with a command from Serial Monitor; no Wi-Fi or trained model is needed.
+The camera takes a photograph, the program holds it in memory and the microSD card stores it as a JPEG. A command from Serial Monitor triggers each photograph.
 
 ## The camera and its memory
 
@@ -18,8 +18,6 @@ An **image buffer** is a region of memory holding one image. The sketch obtains 
 | Receive a command | `Serial.read()` |
 | Capture and save | `capturePhoto()` |
 | Obtain / release an image buffer | `esp_camera_fb_get()` / `esp_camera_fb_return()` |
-
-You do not need to memorise the camera pin configuration; reuse the one in the supplied sketch.
 
 [Seeed camera reference](https://wiki.seeedstudio.com/xiao_esp32s3_camera_usage/)
 
@@ -38,10 +36,10 @@ The Sense board communicates with the card using **SPI**, an interface also used
 | MOSI | Data to the card | 9 |
 | CS | Select the card | **21** |
 
-These connections are built into the Sense board; you do not need to wire them today.
+These connections are built into the Sense board.
 
 > [!IMPORTANT]
-> GPIO21 is also connected to the user LED. Replace the Blink sketch entirely. Do not add its LED routine to the camera sketch.
+> GPIO21 is also the user LED. Do not blink the LED in this sketch.
 
 [Seeed microSD reference](https://wiki.seeedstudio.com/xiao_esp32s3_sense_filesystem/)
 
@@ -60,32 +58,28 @@ Formatting erases a card. Use the prepared workshop cards rather than formatting
 
 ## Libraries used by this sketch
 
-Before opening the program, install **esp32 by Espressif Systems** through Arduino IDE's **Boards Manager** and select **XIAO_ESP32S3**. If you already completed the [Arduino setup](../README.md#install-the-esp32-board-package), you have installed the dependencies for this exercise.
+The five headers come with **esp32 by Espressif Systems**; no Library Manager installation is needed.
 
-The five `#include` lines refer to header files supplied by that board package:
+| Header | What it provides |
+|---|---|
+| `Arduino.h` | Arduino core functions and types, including `delay()`, `millis()` and serial support |
+| `esp_camera.h` | Camera configuration, initialisation and image-buffer functions |
+| `FS.h` | Filesystem and file interfaces, including `File` |
+| `SD.h` | Access to a microSD card over SPI, including `SD.begin()` and `SD.open()` |
+| `SPI.h` | SPI communication, including the `SPI` object used to connect to the card |
 
-| Header | What it provides | Installation for this exercise |
-|---|---|---|
-| `Arduino.h` | Arduino core functions and types, including `delay()`, `millis()` and serial support | Included in the ESP32 core |
-| `esp_camera.h` | Camera configuration, initialisation and image-buffer functions | Camera driver included with the Arduino ESP32 package |
-| `FS.h` | Filesystem and file interfaces, including `File` | Bundled ESP32 FS library |
-| `SD.h` | Access to a microSD card over SPI, including `SD.begin()` and `SD.open()` | Bundled ESP32 SD library |
-| `SPI.h` | SPI communication, including the `SPI` object used to connect to the card | Bundled ESP32 SPI library |
-
-**No additional Library Manager installation is needed for these five headers in Arduino IDE with the ESP32 package.** In particular, do not install a similarly named camera or SD library for a different board.
-
-`#include` is not an installation command. The camera driver also needs no separate installation in Arduino IDE; skip Espressif's ESP-IDF and PlatformIO instructions.
+Do not install a similarly named camera or SD library for a different board.
 
 ### If a header cannot be found
 
 For an error such as `esp_camera.h: No such file or directory`:
 
-1. Open **Boards Manager**, search for `esp32` and confirm that **esp32 by Espressif Systems** is installed. Installing Arduino IDE alone is not sufficient.
-2. Select **XIAO_ESP32S3** again. Headers bundled with a board package are resolved for the selected board, not simply because some package exists on the computer.
+1. Open **Boards Manager**, search for `esp32` and confirm that **esp32 by Espressif Systems** is installed.
+2. Select **XIAO_ESP32S3** again.
 3. Check that the installed ESP32 package is version **2.0.17**. If the installation was interrupted or damaged, reinstall 2.0.17 and restart the IDE.
 4. If the error remains, ask for help with the first error message and your settings. Do not add other libraries or copy files by hand.
 
-If Arduino reports **multiple libraries found**, inspect the **Used** path in its output. That message alone is not necessarily an error. If it picks an unrelated copy of SD, FS or SPI from your sketchbook, ask for help before deleting any library folders.
+If Arduino reports **multiple libraries found**, check the **Used** path in its output. Ask for help before deleting any library folders.
 
 Sources: [ESP32 core header](https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/Arduino.h), [bundled libraries](https://github.com/espressif/arduino-esp32/tree/master/libraries), [camera driver](https://github.com/espressif/esp32-camera#arduino-ide).
 
@@ -99,7 +93,7 @@ Sources: [ESP32 core header](https://github.com/espressif/arduino-esp32/blob/mas
 
 *The command starts a capture; the image is held in memory, then written to the card.*
 
-**1. Receive the command.** This excerpt is inside `loop()`. It calls the capture function only when the device is ready.
+**1. Receive the command** (inside `loop()`).
 
 ```cpp
 char command = Serial.read();
@@ -110,7 +104,7 @@ if (command == 'c' || command == 'C') {
 }
 ```
 
-**2. Obtain an image.** Inside `capturePhoto()`, the driver provides a frame. If none is available, the function returns without trying to save a file.
+**2. Obtain an image** (inside `capturePhoto()`).
 
 ```cpp
 camera_fb_t *frame = esp_camera_fb_get();
@@ -120,7 +114,7 @@ if (frame == nullptr) {
 }
 ```
 
-**3. Write and release it.** After checking the filename and opening the file, these lines save the bytes and release the camera memory.
+**3. Write the file and release the camera memory.**
 
 ```cpp
 size_t expectedBytes = frame->len;
@@ -129,11 +123,9 @@ photo.close();
 esp_camera_fb_return(frame);
 ```
 
-The complete sketch also initialises the camera and card, chooses unused filenames and checks that the whole file was written.
-
 ### Put it together
 
-Open the sketch in Arduino IDE, keeping it in its matching `04_Camera_and_SD` folder. Alternatively, paste the full code below into a new sketch of that name.
+Open the sketch in its `04_Camera_and_SD` folder, or paste the code below into a new sketch of that name.
 
 <details>
 <summary>Complete camera and microSD sketch</summary>
@@ -298,7 +290,7 @@ void loop() {
 5. Type **c** and send it.
 6. Read the saved filename. Move the camera and repeat.
 
-The sketch chooses an unused filename, so photographs already on the card are not overwritten. A filename records sequence, **not a date or location**. This exercise does not use GPS or a real-time clock; record context separately.
+Existing photographs are not overwritten. Filenames record sequence, not date or place: note the context separately.
 
 ## Retrieve the photographs
 
@@ -324,8 +316,6 @@ Capture:
 
 Choose two photographs of the same subject that look noticeably different, and explain one detail that became clearer or disappeared.
 
-These photographs are observations, not yet a training dataset. They show how framing, background and light change what the camera records.
-
 ## Troubleshooting
 
 | Symptom | First thing to inspect |
@@ -341,7 +331,7 @@ These photographs are observations, not yet a training dataset. They show how fr
 
 ## Sources
 
-The camera and storage workflow draws on [Seeed camera usage](https://wiki.seeedstudio.com/xiao_esp32s3_camera_usage/) and [Sense microSD](https://wiki.seeedstudio.com/xiao_esp32s3_sense_filesystem/), with the [Espressif camera interface](https://github.com/espressif/esp32-camera/blob/master/driver/include/esp_camera.h) as the API reference. The workshop version adds a serial trigger, unused filenames, readiness messages and write-length reporting.
+The camera and storage workflow draws on [Seeed camera usage](https://wiki.seeedstudio.com/xiao_esp32s3_camera_usage/) and [Sense microSD](https://wiki.seeedstudio.com/xiao_esp32s3_sense_filesystem/), with the [Espressif camera interface](https://github.com/espressif/esp32-camera/blob/master/driver/include/esp_camera.h) as the API reference.
 
 The SPI image is reproduced from [Pervasive Urbanism: Day 2 Sensors and Actuators](https://github.com/PervasiveUrbanism/PervasiveUrbanism_25-26/tree/main/Skills%20Module%202%20Prosthetic%20Clouds/Skills%202%20-%20Day%202%20Sensors%20and%20Actuators), with permission obtained by the instructor. Original image rights remain with their respective creators.
 

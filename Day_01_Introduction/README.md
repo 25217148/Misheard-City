@@ -7,19 +7,17 @@
 
 [Workshop homepage](../README.md) · [Our board](#our-board) · [Installation](#installation) · [AI-assisted programming](#ai-assisted-programming) · [Camera practical](04_Camera_and_SD/README.md) · [Research task](05_Research/README.md)
 
-Today we get to know the device for our urban enquiry: we upload and change a program, communicate with the board and take photographs. Later, the same board will run a model trained on your group's own categories.
-
-**You need:** a laptop, Arduino IDE, a USB-C data cable, a XIAO ESP32S3 Sense, a prepared microSD card and a card reader. No soldering or external sensor wiring is required today.
+**You need:** a laptop, Arduino IDE, a USB-C data cable, a XIAO ESP32S3 Sense, a prepared microSD card and a card reader.
 
 ---
 
 ## Opening tutorial: interests and observations
 
-Show a photograph or describe a place you would like to investigate: one detail you notice there and one thing you would like to understand better. These interests are the starting point for your categories.
+Show a photograph or describe a place you would like to investigate: one detail you notice there and one thing you would like to understand better.
 
 ## What is Arduino, and where does it come from?
 
-**Arduino** is an open-source electronics platform for creating interactive projects. It brings together **hardware**, the physical board and connected components, and **software**, the instructions that make them work.
+**Arduino** is an open-source electronics platform for interactive projects. It combines **hardware** (the board and its components) and **software** (the code that runs on it).
 
 Arduino grew out of interaction-design education in Ivrea, Italy. It made microcontrollers more accessible to designers, artists and students who wanted to experiment with physical objects and environments.
 
@@ -31,7 +29,7 @@ Arduino grew out of interaction-design education in Ivrea, Italy. It made microc
 
 *An early Arduino prototype.*
 
-Because the platform is open, you can learn from existing examples, adapt them and share the result. We work this way throughout the workshop.
+Because the platform is open, you can learn from existing examples, adapt them and share the result.
 
 [Arduino website](https://www.arduino.cc/) · [What is Arduino?](https://docs.arduino.cc/learn/starting-guide/whats-arduino/)
 
@@ -45,8 +43,6 @@ A programmable board can **sense** something, process the information and produc
 - A camera captures an image and saves it to a card.
 - A trained model produces category scores from a camera image.
 
-The last two examples are central to this workshop. Our Venice device linked visual classifications to a responsive soundscape; your group will link its own urban question to observations and a film.
-
 ### Microcontrollers and computers
 
 A **microcontroller** combines a processor, memory and connections to other components. A **development board** makes the chip easier to power, program and connect.
@@ -59,8 +55,6 @@ A **microcontroller** combines a processor, memory and connections to other comp
 | Has a desktop interface | Communicates through USB, connected components or a network |
 
 Uploading installs the program in the board's flash memory. Once programmed, the board can run from a USB power supply without the laptop.
-
-Different microcontrollers have different software environments. On the ESP32, Arduino runs on top of a real-time operating system, but we only need the simple `setup()` and `loop()` structure.
 
 ## The Arduino language and ecosystem
 
@@ -76,9 +70,7 @@ A program is called a **sketch**. We write it in the **Arduino IDE**, the applic
 | Library | Reusable code for a camera, sensor or other task |
 | Firmware | The program installed on the board |
 
-Many manufacturers make Arduino-compatible boards, including Seeed Studio, Adafruit and SparkFun. Their pin assignments, memory and electrical requirements differ. An example written for an Uno often needs changes before it can run on a XIAO.
-
-Python will be introduced later for datasets and analysis. Today's device programs use Arduino C++.
+Many manufacturers make Arduino-compatible boards, including Seeed Studio, Adafruit and SparkFun. An example written for an Uno often needs changes before it runs on a XIAO.
 
 ---
 
@@ -105,7 +97,7 @@ We use the **XIAO ESP32S3 Sense**, a small board with a camera, microphone and m
 | Connectivity | Wi-Fi and Bluetooth LE |
 | Sense expansion | Camera, digital microphone and microSD socket |
 
-The camera module can differ between production versions. Check which one your kit has; older tutorials may show a different one.
+The camera module can differ between production versions.
 
 ### Pins, power and buttons
 
@@ -118,18 +110,18 @@ Find the **USB-C socket**, **BOOT**, **RESET**, **GND**, **3V3** and **user LED*
 A **GPIO** is a general-purpose input/output connection. The board's printed labels and processor GPIO numbers are not always the same: **D0 corresponds to GPIO1**. A bare pin number in our ESP32 code refers to the GPIO number.
 
 - **RESET** restarts the installed program.
-- **BOOT** helps place the board in download mode if uploading fails.
+- **BOOT** enters download mode when uploading fails.
 - **GND** is the common electrical reference.
 - **3V3** is the regulated 3.3 V supply.
 
 > [!IMPORTANT]
-> USB supplies 5 V power, but GPIO signals use **3.3 V**. Do not connect a 5 V signal directly to a GPIO. External sensor wiring and soldering come in a later session.
+> USB supplies 5 V power, but GPIO signals use **3.3 V**. Do not connect a 5 V signal directly to a GPIO.
 
 ### Camera, microphone and microSD
 
 ![Sense expansion-board connections](images/sense-back.png)
 
-*The Sense expansion board. The camera and microphone already use some of the board's connections.*
+*The Sense expansion board.*
 
 The Sense SD interface uses:
 
@@ -143,13 +135,11 @@ The Sense SD interface uses:
 For SD chip select, follow the [Sense filesystem instructions](https://wiki.seeedstudio.com/xiao_esp32s3_sense_filesystem/), which specify `SD.begin(21)`. Some reference drawings show a different CS label.
 
 > [!IMPORTANT]
-> The built-in user LED also uses **GPIO21**. Finish the LED exercises before using the card. The camera practical replaces the LED program; do not combine SD access with a blinking routine.
+> The user LED also uses **GPIO21**. Do not blink the LED in a sketch that uses the SD card.
 
 ### Memory and files
 
 **Flash** keeps the program when power is disconnected. **RAM and PSRAM** hold temporary working data, which is lost when power is removed. The **microSD card** holds files deliberately saved by the program.
-
-A photograph first exists only in memory; saving it to the card is a separate step.
 
 ---
 
@@ -163,13 +153,11 @@ Use a folder you can find again, such as `Misheard_City/Group_01`. Arduino's **S
 
 ![Arduino Preferences showing the sketchbook location](images/workingDirectory.png)
 
-*The sketchbook location in Preferences. Choose your own folder.*
+*The sketchbook location in Preferences.*
 
 Keep each sketch inside a folder with the same name:
 
 `01_Blink/01_Blink.ino`
-
-Save your group's variations separately so you can return to the supplied example.
 
 ## Install the ESP32 board package
 
@@ -189,20 +177,12 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 ## Board packages, libraries and header files
 
-A line such as `#include "SD.h"` makes a **header file** available to the sketch. A header declares functions and types that the program can use. The `.h` extension does **not** mean that a separate installation is required, and `#include` does not download anything.
-
-There are two installation routes in Arduino IDE:
-
 | What you need | Where to install it | Example |
 |---|---|---|
 | Support for a family of boards, including its core and bundled libraries | **Boards Manager** | **esp32 by Espressif Systems** |
 | An additional library for a particular device or task | **Library Manager** | A sensor library specified in a later practical |
 
-**For Day 1, the ESP32 board package supplies all the components used by our examples.** Install that package and select **XIAO_ESP32S3**. You do not need separate Library Manager installations for `Arduino.h`, `esp_camera.h`, `FS.h`, `SD.h` or `SPI.h`.
-
-For a future exercise that specifies an additional library, open **Tools → Manage Libraries…** (or the Library Manager sidebar), search for its exact name, check the author and install the version specified by the lesson. Use **Sketch → Include Library → Add .ZIP Library…** only when the exercise supplies a library ZIP. Do not download individual `.h` files into the sketch folder as a substitute for installing a library.
-
-In the camera practical, a [dependency table](04_Camera_and_SD/README.md#libraries-used-by-this-sketch) explains what each included header provides.
+**For Day 1, the ESP32 board package supplies every header our examples use** (`Arduino.h`, `esp_camera.h`, `FS.h`, `SD.h`, `SPI.h`). Do not install them through Library Manager or copy `.h` files into the sketch folder.
 
 References: [Espressif installation guide](https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html), [bundled ESP32 libraries](https://github.com/espressif/arduino-esp32/tree/master/libraries), and [camera driver installation for Arduino IDE](https://github.com/espressif/esp32-camera#arduino-ide).
 
@@ -216,7 +196,7 @@ Select **XIAO_ESP32S3** and the connected **port**.
 
 *Board selection. The Sense version also uses XIAO_ESP32S3.*
 
-The **board** tells the IDE what to compile for. The **port** identifies the connected device. On Windows it may look like `COM5`; on macOS it may contain `usbmodem`. Reconnecting the board can help identify the correct entry.
+On Windows the port may look like `COM5`; on macOS it contains `usbmodem`.
 
 ### Settings
 
@@ -228,15 +208,11 @@ The **board** tells the IDE what to compile for. The **port** identifies the con
 | Serial Monitor | 115200 baud |
 | Other settings | Board defaults |
 
-Record the Arduino IDE version and ESP32 package version in your group notes. Menu labels can vary between releases.
-
 If the port is missing or uploading fails, disconnect USB, hold **BOOT**, reconnect USB and release BOOT. Select the port again and upload. Press RESET afterwards if needed. See [Seeed's recovery instructions](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/#bootloader-mode).
 
 ---
 
 # Coding in Arduino (C/C++)
-
-Each exercise introduces one concept at a time, using the XIAO's LED and USB serial connection.
 
 A program (called a *sketch*) usually has this structure:
 
@@ -256,8 +232,6 @@ void loop() {
 }
 ```
 
-`//` introduces a comment, `{ }` groups instructions, and `;` ends most instructions.
-
 ![Diagram of compilation and upload](images/Compiling.png)
 
 *The IDE compiles your sketch and uploads it to the board.*
@@ -265,10 +239,6 @@ void loop() {
 **Verify** compiles the sketch. **Upload** compiles it and sends it to the board. Uploading a new sketch replaces the previous program.
 
 [Arduino language reference](https://docs.arduino.cc/language-reference/)
-
-**Start with 001 and 002**, then continue to [AI-assisted programming](#ai-assisted-programming) and the [camera exercise](04_Camera_and_SD/README.md). Examples 003–005 explain functions, conditions and repetition; 006–008 are further practice.
-
-A fragment marked as a replacement goes inside the existing program; a complete sketch replaces the previous one.
 
 ---
 
@@ -302,19 +272,33 @@ void loop() {
 
 Upload, then find the blinking user LED (not the separate charging light).
 
-The original timing is **300 ms on and 700 ms off**: approximately one second per cycle.
-
 **Try:** change the timings to 100 and 900. Predict the difference, then upload and compare.
 
-- `pinMode()` configures an output.
-- `digitalWrite()` changes its level.
-- `delay()` waits for a duration in milliseconds.
+### Read 001 line by line
+
+| Code | Meaning |
+|---|---|
+| `// MISHEARD CITY ...` | A **comment**, ignored by the compiler |
+| `const int ledPin = LED_BUILTIN;` | A **constant** of **type** `int` (whole number) named `ledPin`, holding `LED_BUILTIN`. `;` ends the instruction |
+| `int onTimeMs = 300;` | A **variable**: a value that can change, here 300 ms |
+| `void setup() { ... }` | **Defines** the function `setup`. `void`: no result; `( )`: no inputs; `{ }`: its instructions |
+| `pinMode(ledPin, OUTPUT);` | **Calls** `pinMode` with two **arguments**: the pin and its mode |
+| `digitalWrite(ledPin, HIGH);` | Sets the pin `HIGH`: LED off |
+| `void loop() { ... }` | Runs again and again |
+| `delay(onTimeMs);` | Waits for the current value of `onTimeMs` |
+
+`LED_BUILTIN`, `OUTPUT`, `HIGH` and `LOW` are constants defined by Arduino and the board package.
+
+Common first errors:
+
+- Names are **case-sensitive**: `digitalWrite` works, `digitalwrite` does not.
+- Names have no spaces and do not start with a digit: `onTimeMs`, not `on time ms`.
+- Most instructions end with `;`. Function definitions and `if` / `for` blocks end with `}` instead.
+- Every `(` and `{` needs its closing `)` and `}`.
 
 ## 002 - Variables and serial feedback
 
 [Open the complete sketch](02_Blink_and_Serial/02_Blink_and_Serial.ino)
-
-A **variable** holds a value that can change. A **constant** is not reassigned. Names such as `onTimeMs` also communicate the unit.
 
 | Type | Example | Use |
 |---|---|---|
@@ -323,8 +307,25 @@ A **variable** holds a value that can change. A **constant** is not reassigned. 
 | `int` | `300` | A whole number |
 | `unsigned long` | `cycleCount` | A non-negative counter or time value |
 | `float` | `0.72f` | A decimal value |
+| `String` | `"moss"` | Text, such as a label |
 
-This version reports each cycle to the computer with three additions:
+A declaration always has the same form: **type, name, value**.
+
+```cpp
+int onTimeMs = 300;
+float threshold = 0.6;
+bool fast = false;
+String label = "moss";
+```
+
+`=` stores a value: `cycleCount = cycleCount + 1;` adds 1 to the current value. Whole numbers divide without a remainder:
+
+```cpp
+Serial.println(7 / 2);      // int division: prints 3
+Serial.println(7.0 / 2.0);  // decimal division: prints 3.50
+```
+
+Three additions send each cycle to the Serial Monitor:
 
 ```cpp
 // Above setup(): a value we will update.
@@ -384,16 +385,41 @@ void loop() {
 
 Open **Serial Monitor** and choose **115200 baud**. Change `GROUP_01` to your group's name.
 
-`Serial.print()` continues the current line; `Serial.println()` ends it. The messages show the settings used by the sketch. They are **live text**, not a file automatically saved to the SD card.
+`Serial.print()` continues the current line; `Serial.println()` ends it.
 
-**Try:** change a timing value and compare the printed message with the light. Press RESET and observe the counter restarting. The count was held in working memory.
+**Try:** change a timing value and compare the printed message with the light. Press RESET: the counter restarts.
+
+## Reading an error message
+
+When **Verify** fails, the output panel lists errors in this form:
+
+```text
+01_Blink.ino:7:1: error: expected ',' or ';' before 'int'
+```
+
+| Part | Meaning |
+|---|---|
+| `01_Blink.ino` | The file |
+| `7:1` | Line 7, character 1. The IDE also highlights the line |
+| `error: ...` | What the compiler expected or could not find |
+
+Fix the **first** error first; later messages often disappear with it. Lines starting with `note:` belong to the error above.
+
+| Message | Usual cause |
+|---|---|
+| `expected ',' or ';' before ...` | A missing `;` at the end of the **previous** line. In the example above, it is missing on line 6 |
+| `'digitalwrite' was not declared in this scope` | A misspelled or wrongly capitalised name. Check the `suggested alternative` below it |
+| `'ontimeMs' was not declared in this scope` | A variable used under a different name, or never created |
+| `expected '}' at end of input` | A `{` without its closing `}`. The `note:` shows the opening bracket |
+
+When asking an AI assistant for help, paste the first error message exactly, with the code around the line it names.
 
 <details>
 <summary>003–005: functions, conditions and repetition</summary>
 
 ## 003 - Blink using a function
 
-A **function** gives an action a name. This complete example alternates between a short pulse and a long one. Copy it into a new sketch.
+A **function** gives an action a name. Copy this sketch into a new file.
 
 ```cpp
 const int ledPin = LED_BUILTIN;
@@ -416,7 +442,7 @@ void loop() {
 }
 ```
 
-`flash(100)` calls the function with a 100 ms duration for both its on and off parts. The function keeps this action in one place.
+`periodMs` is a **parameter**: in `flash(100)` it receives the value 100. `pinMode()`, `digitalWrite()` and `delay()` are functions too, written by Arduino.
 
 **Try:** describe the sequence before uploading, then swap the two calls. Keep this sketch for the next examples.
 
@@ -461,13 +487,13 @@ void loop() {
 }
 ```
 
-The counter begins at 0, continues while it is below 3, and increases after each repetition. This produces three pulses followed by a pause.
+`i` starts at 0 and increases by 1 while it is below 3: three pulses, then a pause.
 
-**Try:** change the number of pulses. Explain the difference between the finite `for` loop and Arduino's continually repeated `loop()`.
+**Try:** change the number of pulses.
 
 ### Put 003–005 together
 
-This complete example combines the function, condition and repetition. The `fast` variable selects the pulse duration; the `for` loop produces three pulses, followed by a pause. Replace the previous sketch with this version rather than appending another `setup()` or `loop()`.
+Function, condition and repetition in one sketch. Replace the previous sketch with it.
 
 ```cpp
 const int ledPin = LED_BUILTIN;
@@ -497,7 +523,7 @@ void loop() {
 }
 ```
 
-Trace one pass through `loop()` together. Then change either `fast` or the number of repetitions and explain which part of the behaviour should change.
+**Try:** change `fast` or the number of repetitions. Predict the result first.
 
 ---
 
@@ -505,7 +531,7 @@ Trace one pass through `loop()` together. Then change either `fast` or the numbe
 
 # AI-Assisted Programming
 
-Use the blink or pulse sketch you have just observed. Decide on one change, describe it clearly and compare the result with your intention.
+Change your blink sketch with an AI assistant. Decide on one change, describe it clearly and compare the result with your intention.
 
 For example, create **two short pulses, one longer pulse and a pause**.
 
@@ -523,17 +549,15 @@ Keep a short record:
 |---|---|---|---|
 | | | | |
 
-If something fails, give the assistant the exact error, board selection and package version. Ask for a small correction rather than replacing the whole program immediately.
+If something fails, give the assistant the exact error, board selection and package version, and ask for a small correction.
 
 Always test a suggestion on the board: an explanation from AI does not prove that the code works.
 
-**Next:** [Camera and microSD practical](04_Camera_and_SD/README.md). This uses a separate program and replaces the LED sketch.
+**Next:** [Camera and microSD practical](04_Camera_and_SD/README.md)
 
 ---
 
 # Further Coding Examples
-
-Further practice for later. You do not need these before the camera exercise.
 
 ## 006 - Loops with arrays
 
@@ -556,7 +580,7 @@ void loop() {
 }
 ```
 
-Keep the existing `flash()` function. Entries 0, 1 and 2 hold the three durations. If you change the number of entries, also change the loop bound.
+Keep `flash()`. If you change the number of entries, change the loop bound `3` too.
 
 ## 007 - Communicating via Serial Monitor
 
@@ -601,8 +625,6 @@ Open Serial Monitor at 115200 baud. Send **1** to switch the LED on and **0** to
 
 `Serial.available()` indicates that data is waiting; `Serial.read()` receives one character. `'1'` is a character, not the numerical value `1`.
 
-Use this as a separate sketch. GPIO21 cannot simultaneously serve as our manually controlled LED and the SD chip-select signal.
-
 ## 008 - Sending and receiving messages
 
 A **String** can hold several characters. This complete sketch collects characters until you send a newline, then echoes the message.
@@ -631,7 +653,7 @@ void loop() {
 }
 ```
 
-Set Serial Monitor to **115200 baud** and **Newline**, type a short message and send it. This example limits stored text to 80 characters so a missing newline cannot grow the message indefinitely.
+Set Serial Monitor to **115200 baud** and **Newline**, type a short message and send it.
 
 ---
 
