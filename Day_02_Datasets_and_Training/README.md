@@ -9,21 +9,6 @@
 
 ---
 
-## Categories
-
-A classifier knows only the labels it is given. Each category is presented with its definition, example images and the reading behind it.
-
-- The model sees **96 × 96 pixels**: textures and colours survive, small details do not.
-- Every frame is assigned to one of the labels, including scenes that fit none. An `other` label collects them.
-- An image search returns what other people have called a phrase.
-
-| `label` | Definition | Search phrases | Excludes | Ambiguous case |
-|---|---|---|---|---|
-| `moss` | | | | |
-
-Labels use lowercase letters, numbers and underscores, e.g. `weathered_paint`.
-
----
 
 ## Image sources
 
