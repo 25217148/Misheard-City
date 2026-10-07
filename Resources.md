@@ -23,7 +23,7 @@
 ## Image sources
 
 * **[Openverse API](https://api.openverse.org/v1/):** openly licensed images, with creator and licence for each result. Registration steps come with the Day 2 materials; keep the credentials out of notebooks and shared files.
-* **[SerpAPI Google Images API](https://serpapi.com/google-images-api):** Google Images results. Licences are unknown: use them for training only, never in the films.
+* **[SerpAPI Google Images API](https://serpapi.com/google-images-api):** Google Images results, with title, website and page link; no licence information.
 * **[Wikimedia Commons image metadata](https://www.mediawiki.org/wiki/API:Imageinfo/en):** an alternative source of image URLs and metadata.
 * **[Creative Commons licences](https://creativecommons.org/licenses/):** what each licence allows and requires.
 
