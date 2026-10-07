@@ -3,7 +3,7 @@
 
 **Thursday 8 October · Kunpeng Lei**
 
-[Workshop homepage](../README.md) · [Categories](#categories) · [Image sources](#image-sources) · [Working in Python](#working-in-python) · [Python basics](#python-basics) · [Collection and cleaning](#collection-and-cleaning) · [Openverse](01a_Openverse/README.md) · [Google Images](01b_Google_Images/README.md) · [Dataset review](02_Dataset_Review/README.md) · [Edge Impulse training](03_Edge_Impulse_Training/README.md)
+[Workshop homepage](../README.md) · [Categories](#categories) · [Image sources](#image-sources) · [Working in Python](#working-in-python) · [Python basics](#python-basics) · [Collection and cleaning](#collection-and-cleaning) · [AI script](#ai-script) · [Openverse](01a_Openverse/README.md) · [Google Images](01b_Google_Images/README.md) · [Dataset review](02_Dataset_Review/README.md) · [Edge Impulse training](03_Edge_Impulse_Training/README.md)
 
 **You need:** your categories, a laptop with a Google account, an email address and a mobile phone number for the image services, and a free [Edge Impulse](https://studio.edgeimpulse.com/) account.
 
@@ -239,12 +239,31 @@ Every code cell starts with its type and ends with a line that starts with **✓
 
 ---
 
-## For Day 3
+## AI script
 
-- The revised category table and one image the group debated.
-- `review.csv` and `dataset_summary.txt`.
-- The [first model](03_Edge_Impulse_Training/README.md) and its confusion matrix.
-- The images noted `ambiguous` in `review.csv`, for testing.
+A **script** fixes what the 3-minute film says and in which order. Version 1 is drafted by a large language model (Claude, ChatGPT, Gemini) from the group's own material; the device readings enter on Day 3.
+
+| Input | From |
+|---|---|
+| Categories: label, definition, what each excludes, the ambiguous case | Category table |
+| One or two passages from the readings behind the categories | Day 1–2 readings |
+| Two or three dataset images the group argued about, and the disagreement | Dataset review |
+
+### Prompt: version 1
+
+> We are making a standalone experimental film of exactly 3 minutes for an urban design workshop. Our device is a small camera that classifies what it sees into our own categories. Here are our categories, a passage from our reading, and two or three images from our dataset that we argued about, with what we disagreed on: [paste].
+>
+> Write a script in three parts: the question, the experiment, and what the device's misreadings might show us about the place. Leave clearly marked gaps where our device readings will go; do not invent readings. Use about 350 words of voice-over or on-screen text in total. Then list every shot as a table with the columns `shot`, `duration_s`, `material`, `what_it_shows`, `place`, `capture_notes`. `material` is one of: device record, phone footage, generated keyframe, generated video, data visualisation, text. The durations must add up to 180 seconds. No identifiable people.
+
+### Prompt: one change
+
+> Shot 4 shows the category without the place. It belongs after shot 6, and its time goes back to the device record in shot 7. The total stays at 180 seconds.
+
+One change per request, with the reason in the group's own terms. The model writes text only: facts, quotations and place names come from the inputs or are checked against them.
+
+`script.md` in `Misheard_City_Data/<Group>/`: the model, the date and every prompt at the head, the script, then the model's shot table as a draft.
+
+---
 
 ## Troubleshooting
 
