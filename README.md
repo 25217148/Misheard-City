@@ -49,9 +49,9 @@ Develop a research question and a small set of **visual categories**. We collect
 
 ### Day 2: Categories and datasets
 
-Groups present their proposals and refine their categories. We collect images with **Openverse** (or **Google Images** as an optional second source), review them in a **Python notebook** and export a dataset for Edge Impulse.
+Groups present their proposals and refine their categories. We collect images with **Openverse** and **Google Images**, clean and review them in **Google Colab** and export a dataset for Edge Impulse.
 
-*Materials will be published here before the session on Thu 08.10.*
+[Categories and datasets](Day_02_Datasets_and_Training/README.md) · [Openverse](Day_02_Datasets_and_Training/01a_Openverse/README.md) · [Google Images](Day_02_Datasets_and_Training/01b_Google_Images/README.md) · [Dataset review](Day_02_Datasets_and_Training/02_Dataset_Review/README.md) · [Edge Impulse training](Day_02_Datasets_and_Training/03_Edge_Impulse_Training/README.md)
 
 ### Day 3: Model deployment and field recording
 
@@ -92,7 +92,7 @@ Each group makes a **standalone film of approximately 3½–4 minutes**. It comm
 
 This repository is the **central access point** for all workshop materials: each lesson is a README page with its code, notebooks and images, published here before its session. Use **Code → Download ZIP** for a local copy, or [GitHub Desktop](https://desktop.github.com/) if you already use it.
 
-Open `.ino` files in **Arduino IDE** and keep each sketch inside its matching folder. Python notebooks open in **Google Colab** or a local Jupyter installation; setup instructions come with the Day 2 materials. Keep your group's variations separate from the supplied examples, and note which code, data and model version produced each result.
+Open `.ino` files in **Arduino IDE** and keep each sketch inside its matching folder. Python notebooks open in **Google Colab**; [VS Code](Day_02_Datasets_and_Training/README.md#vs-code-on-your-own-computer) runs them on a laptop. Keep your group's variations separate from the supplied examples, and note which code, data and model version produced each result.
 
 ## Readings
 
