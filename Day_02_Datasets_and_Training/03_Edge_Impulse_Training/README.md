@@ -123,12 +123,6 @@ Version table:
 | v1 | First dataset, MobileNetV2 0.35, 25 cycles | | | | |
 | v2 | | | | | |
 
-## 9. For Day 3
-
-- The category definitions, the dataset summary and one image that required discussion.
-- The confusion matrix and one error to investigate.
-- The saved model version with the dataset that produced it.
-
 ## Troubleshooting
 
 | Symptom | Cause |
