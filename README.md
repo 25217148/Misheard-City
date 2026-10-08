@@ -21,8 +21,8 @@ The workshop grows out of a **wearable visual-recognition device** developed and
 | Introduction | Mon 05.10 | — | Project introduction and workshop selection | 10:25–10:35, online |
 | **Day 1** | **Tue 06.10** | **1** | **Arduino and the XIAO: programming, AI-assisted iteration, image capture** | **09:30–13:00** |
 | Day 2 | Thu 08.10 | 2 | Categories and datasets: image search, review, first training | 13:00–17:00 |
-| Day 3 | Fri 09.10 | 2 | First model, deployment and field recording | 09:00–12:00 · 13:00–15:00 |
-| Day 4 | Mon 12.10 | 3 | Fieldwork, enclosure design and optional sensors | 09:00–12:00 · 13:00–15:00 |
+| Day 3 | Fri 09.10 | 2 | First model, deployment and field recording |  13:00–17:00 |
+| Day 4 | Mon 12.10 | 3 | Fieldwork, enclosure design and optional sensors | 10:00–13:00 |
 | Day 5 | Tue 13.10 | 3 | Data analysis, visualisation and AI-assisted moving image | 09:00–11:00 · 13:00–15:00 |
 | Day 6 | Wed 14.10 | 4 | Film presentation 1: draft screenings | 09:00–13:00 |
 | Day 7 | Thu 15.10 | 4 | Film presentation 2: revised screenings | 09:00–11:00 |
