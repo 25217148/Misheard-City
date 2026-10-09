@@ -23,7 +23,7 @@ The workshop grows out of a **wearable visual-recognition device** developed and
 | Day 2 | Thu 08.10 | 2 | Categories and datasets: image search, review, first training | 13:00–17:00 |
 | Day 3 | Fri 09.10 | 2 | First model, deployment, field recording and storyboard | 13:00–17:00 |
 | Day 4 | Mon 12.10 | 3 | Keyframes, Creative Code and image to video in Fuser | 10:00–13:00 |
-| Day 5 | Tue 13.10 | 3 | Generated shots, editing and sound | 09:00–11:00 · 13:00–15:00 |
+| Day 5 | Tue 13.10 | 3 | Generated shots, editing and sound | 10:00–13:00 |
 | Day 6 | Wed 14.10 | 4 | Film presentation 1: draft screenings | 09:00–13:00 |
 | Day 7 | Thu 15.10 | 4 | Film presentation 2: revised screenings | 09:00–11:00 |
 | Submission | Thu 15.10 | 4 | Final film | By 14:00 |
