@@ -10,7 +10,7 @@ Misheard City investigates how **visual classification** shapes our perception a
 
 The workshop grows out of a **wearable visual-recognition device** developed and deployed in Venice, where classifications of the surroundings and bodily signals shaped a responsive soundscape. Over two weeks, each group develops its own enquiry through a **small device**, **field observations** and an **experimental film**. AI supports the reading of theoretical texts, programming, design and moving-image practice.
 
-**No previous coding experience is required. All disciplinary backgrounds are welcome.** We work in four groups of four or five, with one Seeed Studio **XIAO ESP32S3 Sense** kit per group.
+**No previous coding experience is required. All disciplinary backgrounds are welcome.** Each group has one Seeed Studio **XIAO ESP32S3 Sense** kit.
 
 [Dates](#dates) · [Workshop modules](#workshop-modules) · [Support & resources](#support--resources)
 
@@ -21,9 +21,9 @@ The workshop grows out of a **wearable visual-recognition device** developed and
 | Introduction | Mon 05.10 | — | Project introduction and workshop selection | 10:25–10:35, online |
 | **Day 1** | **Tue 06.10** | **1** | **Arduino and the XIAO: programming, AI-assisted iteration, image capture** | **09:30–13:00** |
 | Day 2 | Thu 08.10 | 2 | Categories and datasets: image search, review, first training | 13:00–17:00 |
-| Day 3 | Fri 09.10 | 2 | First model, deployment and field recording |  13:00–17:00 |
-| Day 4 | Mon 12.10 | 3 | Fieldwork, enclosure design and optional sensors | 10:00–13:00 |
-| Day 5 | Tue 13.10 | 3 | Data analysis, visualisation and AI-assisted moving image | 09:00–11:00 · 13:00–15:00 |
+| Day 3 | Fri 09.10 | 2 | First model, deployment, field recording and storyboard | 13:00–17:00 |
+| Day 4 | Mon 12.10 | 3 | Keyframes, Creative Code and image to video in Fuser | 10:00–13:00 |
+| Day 5 | Tue 13.10 | 3 | Generated shots, editing and sound | 09:00–11:00 · 13:00–15:00 |
 | Day 6 | Wed 14.10 | 4 | Film presentation 1: draft screenings | 09:00–13:00 |
 | Day 7 | Thu 15.10 | 4 | Film presentation 2: revised screenings | 09:00–11:00 |
 | Submission | Thu 15.10 | 4 | Final film | By 14:00 |
@@ -53,46 +53,67 @@ Groups present their proposals and refine their categories. We collect images wi
 
 [Categories and datasets](Day_02_Datasets_and_Training/README.md) · [Openverse](Day_02_Datasets_and_Training/01a_Openverse/README.md) · [Google Images](Day_02_Datasets_and_Training/01b_Google_Images/README.md) · [Dataset review](Day_02_Datasets_and_Training/02_Dataset_Review/README.md) · [Edge Impulse training](Day_02_Datasets_and_Training/03_Edge_Impulse_Training/README.md)
 
-### Day 3: Model deployment and field recording
+### Day 3: Model deployment, field recording and storyboard
 
-We complete a first model, run it on the XIAO and compare its readings with what we see. A **field recorder** saves each photograph together with its classification scores.
+The first model runs on the XIAO, and its readings meet the surfaces and objects in front of the camera. A **field recorder** saves each photograph with its classification scores. The first readings complete the group's AI-drafted **3-minute script**, which is drawn as a **storyboard** in Miro and listed shot by shot for field collection.
 
-*Materials will be published here before the session on Fri 09.10.*
+[Model deployment](Day_03_Deployment_and_Recording/README.md) · [Field recorder](Day_03_Deployment_and_Recording/README.md#field-recorder) · [AI script](Day_03_Deployment_and_Recording/README.md#ai-script) · [Storyboard](Day_03_Deployment_and_Recording/README.md#storyboard) · [Field collection](Day_03_Deployment_and_Recording/README.md#field-collection)
 
-## Module 3: Devices, fieldwork and interpretation
+## Module 3: Fieldwork and interpretation
 
-Take the device into an urban setting and bring its records into dialogue with your observations. We introduce **enclosure design** with Rhino and AI assistance, **soldering** and **sensor recording**. Three **Grove GSR** sensors are available for optional experiments; a visual-only project is a complete enquiry. **Python notebooks** help organise and interpret the records: model scores, field descriptions and bodily signals are different kinds of evidence.
+The device goes into an urban setting, and its records enter into dialogue with our observations. **Python notebooks** help organise and interpret the records: model scores and field descriptions are different kinds of evidence.
 
-### Day 4: Fieldwork and device development
+### Day 4: Fuser workflow and Creative Code
 
-Groups review their first records, plan a second observation and design how the device is carried. Groups adding a sensor solder headers and test the GSR.
+The storyboard and the field material continue in **Fuser**, a node-based canvas: keyframes for the shots the records cannot show, **Creative Code** sketches driven by the device records, then image to video for the shots the film turns on.
 
 *Materials will be published here before the session on Mon 12.10.*
 
-### Day 5: Data, storyboard and moving image
+### Day 5: Moving image, editing and sound
 
-We analyse and visualise the field records in Python, develop the storyboard and try **AI-assisted image and video workflows**.
+The generated shots and data layers join the device records and phone footage in the edit, with field sound, voice-over and music. Creative Code recordings and a notebook draw the records as layers, timelines and contact sheets.
+
+*Materials will be published here before the session on Tue 13.10.*
 
 ## Module 4: Moving image and discussion
 
-Each group makes a **standalone film of approximately 3½–4 minutes**. It communicates the research question, the classification choices, something learned through the experiment and the group's artistic interpretation. Make the relationship between observations and generated imagery understandable; the film should work without a live presentation.
+Each group makes a **standalone film of 3 minutes**: see the [film requirements](#film-requirements).
 
 ### Days 6–7: Film presentations
 
-| Review | Bring | Discussion |
-| --- | --- | --- |
-| **14 October — Draft film** | A complete viewing draft; temporary sound, captions and marked placeholders are acceptable | Screening, a short account of the enquiry and class discussion |
-| **15 October — Revised film** | The revised version and a brief note of the changes | The effect of the revisions and the remaining small edits |
+The draft film is screened and discussed on 14 October, along the six points of the film requirements, and turned into a revision list. The revised film and its change note follow on 15 October, with the final export and submission.
 
-**Submit the final film by 14:00 on 15 October**, with the group title, members' names and credits. The four films are screened together at the school presentation on 16 October.
+*Materials will be published here before the session on Wed 14.10.*
+
+**Submit the final film by 14:00 on 15 October.** The films are screened together on 16 October.
+
+### Film requirements
+
+**The film**
+
+- A standalone film of **3 minutes**, understandable without a live presentation.
+- It communicates the **research question**, the **categories** and how they were chosen, **something learned through the experiment**, and the group's **artistic interpretation**.
+- It shows at least **two records from the device as they are**: the photograph with its label and score.
+- Generated images and video are **marked as generated**, and the relationship between observations and generated imagery is understandable.
+- Inputs for generated material are the group's own photographs and footage and the images collected on Day 2 through Openverse or SerpAPI. Identifiable people do not appear.
+
+**Submission**
+
+| Item | Format |
+|---|---|
+| Final film | MP4 (H.264), 1920 × 1080, file name `MisheardCity_<Group>_<Title>.mp4` |
+| Credits | At the end of the film: title, members' names, music and sound sources |
+| Still | One frame from the film, JPG |
+| Synopsis | Up to 100 words: question, method, finding |
+| Generation log | The completed generation log |
 
 # SUPPORT & RESOURCES
 
 ## GitHub
 
-This repository is the **central access point** for all workshop materials: each lesson is a README page with its code, notebooks and images, published here before its session. Use **Code → Download ZIP** for a local copy, or [GitHub Desktop](https://desktop.github.com/) if you already use it.
+This repository is the **central access point** for all workshop materials: each lesson is a README page with its code, notebooks and images. **Code → Download ZIP** gives a local copy; [GitHub Desktop](https://desktop.github.com/) keeps one up to date.
 
-Open `.ino` files in **Arduino IDE** and keep each sketch inside its matching folder. Python notebooks open in **Google Colab**; [VS Code](Day_02_Datasets_and_Training/README.md#vs-code-on-your-own-computer) runs them on a laptop. Keep your group's variations separate from the supplied examples, and note which code, data and model version produced each result.
+`.ino` files open in **Arduino IDE**, each sketch inside its matching folder. Python notebooks open in **Google Colab**; [VS Code](Day_02_Datasets_and_Training/README.md#vs-code-on-your-own-computer) runs them on a laptop. Group variations stay separate from the supplied examples, with a note of the code, data and model version behind each result.
 
 ## Readings
 
