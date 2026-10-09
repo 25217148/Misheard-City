@@ -5,7 +5,6 @@
 1. [**Arduino and the XIAO**](#arduino-and-the-xiao)
 2. [**Edge Impulse and on-device AI**](#edge-impulse-and-on-device-ai)
 3. [**Image sources**](#image-sources)
-4. [**Sensors and fabrication**](#sensors-and-fabrication)
 
 ---
 
@@ -22,12 +21,7 @@
 
 ## Image sources
 
-* **[Openverse API](https://api.openverse.org/v1/):** openly licensed images, with creator and licence for each result. Registration steps come with the Day 2 materials; keep the credentials out of notebooks and shared files.
+* **[Openverse API](https://api.openverse.org/v1/):** openly licensed images, with creator and licence for each result. Register your group as described in [01a, Part A](Day_02_Datasets_and_Training/01a_Openverse/README.md#part-a--register-once), and keep the credentials out of notebooks and shared files.
 * **[SerpAPI Google Images API](https://serpapi.com/google-images-api):** Google Images results, with title, website and page link; no licence information.
 * **[Wikimedia Commons image metadata](https://www.mediawiki.org/wiki/API:Imageinfo/en):** an alternative source of image URLs and metadata.
 * **[Creative Commons licences](https://creativecommons.org/licenses/):** what each licence allows and requires.
-
-## Sensors and fabrication
-
-* **[Grove GSR sensor](https://wiki.seeedstudio.com/Grove-GSR_Sensor/):** specification and calibration of the optional skin-response sensor.
-* **[Rhino scripting](https://www.rhino3d.com/features/developer/scripting/):** reference for AI-assisted design and enclosure modelling.

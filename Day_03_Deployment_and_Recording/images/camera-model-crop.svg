@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc"><title id="title">What the model receives</title><desc id="desc">A 320 by 240 camera image loses 40 pixel strips on the left and right during a centred square crop, then scales to 96 by 96. Schematic, not a camera image.</desc><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#607080"/></marker></defs><rect width="1200" height="440" rx="12" fill="#f6f7f8"/><g font-family="Arial, Helvetica, sans-serif" fill="#182c3e"><text x="32" y="42" font-size="25" font-weight="700">What the model receives</text><text x="55" y="85" font-size="20">Full saved frame: 320 × 240</text>
+<rect x="55" y="110" width="320" height="240" fill="#dce9ed" stroke="#607080"/>
+<path d="M55 295L160 200L240 280L320 165L375 220V350H55Z" fill="#7fa998"/>
+<circle cx="308" cy="155" r="20" fill="#efca76"/>
+<rect x="55" y="110" width="40" height="240" fill="#e7a4a0" fill-opacity=".65"/>
+<rect x="335" y="110" width="40" height="240" fill="#e7a4a0" fill-opacity=".65"/>
+<rect x="95" y="110" width="240" height="240" fill="none" stroke="#244c52" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M393 228H450" stroke="#607080" stroke-width="2.5" marker-end="url(#arrow)" fill="none"/>
+<text x="465" y="85" font-size="20">Central crop: 240 × 240</text>
+<svg x="465" y="110" width="240" height="240" viewBox="95 110 240 240"><rect x="95" y="110" width="240" height="240" fill="#dce9ed"/><path d="M55 295L160 200L240 280L320 165L375 220V350H55Z" fill="#7fa998"/><circle cx="308" cy="155" r="20" fill="#efca76"/></svg>
+<path d="M723 228H790" stroke="#607080" stroke-width="2.5" marker-end="url(#arrow)" fill="none"/>
+<text x="820" y="85" font-size="20">Model input: 96 × 96</text>
+<svg x="840" y="134" width="192" height="192" viewBox="95 110 240 240"><rect x="95" y="110" width="240" height="240" fill="#dce9ed"/><path d="M55 295L160 200L240 280L320 165L375 220V350H55Z" fill="#7fa998"/><circle cx="308" cy="155" r="20" fill="#efca76"/></svg>
+<text x="55" y="395" font-size="18">Shaded side strips are saved in the photograph but excluded from inference. Schematic illustration.</text></g></svg>

@@ -1,0 +1,4 @@
+shot,duration_s,material,what_it_shows,place,capture_notes,file_name,status,keyframe,on_screen_text,sound
+1,8,phone footage,Street level along the canal wall; the viewer sees the place before any category,Regent's Canal towpath,"wide, eye level, handheld, slow walk",S01_01_canal_wall.mp4,recorded,,,field sound
+2,6,device record,The wall as the XIAO saw it: photograph with label and score,Regent's Canal towpath,"close-up, chest height, AUTO_CAPTURE",rec_0007.jpg,recorded,,stain 0.62 · moss 0.31,field sound
+3,5,generated video,The same wall read as moss,,from rec_0007.jpg,G03_wall_moss.mp4,generated,K03_wall_moss.png,Generated,voice-over
