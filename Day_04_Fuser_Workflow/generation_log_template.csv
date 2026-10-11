@@ -1,0 +1,4 @@
+output_file,tool,model,date,input_files,prompt,used_in_shot,note
+K03_wall_moss.png,Fuser,Flux,2026-10-12,rec_0007.jpg,"Weathered brick wall by a canal, dark patches read as moss, overcast light, 35 mm, eye level, no people",3,keyframe
+C05_score_line.mp4,Fuser,Creative Code (p5.js),2026-10-12,records_for_prompt.txt,"score_line.js, records of session 02",5,"creative code: own records, colours of the four categories, seconds = 12"
+G03_wall_moss.mp4,Fuser,Kling,2026-10-12,K03_wall_moss.png,"The camera slowly moves closer; the dark patches turn into moss and back into stain",3,video
