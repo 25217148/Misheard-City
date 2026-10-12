@@ -67,7 +67,7 @@ The device goes into an urban setting, and its records enter into dialogue with 
 
 The storyboard and the field material continue in **Fuser**, a node-based canvas: keyframes for the shots the records cannot show, **Creative Code** sketches driven by the device records, then image to video for the shots the film turns on.
 
-*Materials will be published here before the session on Mon 12.10.*
+[Fuser workflow](Day_04_Fuser_Workflow/README.md) · [Creative Code](Day_04_Fuser_Workflow/README.md#3-creative-code) · [Shot list template](Day_03_Deployment_and_Recording/shot_list_template.csv) · [Generation log](Day_04_Fuser_Workflow/generation_log_template.csv)
 
 ### Day 5: Moving image, editing and sound
 
@@ -105,7 +105,7 @@ The draft film is screened and discussed on 14 October, along the six points of 
 | Credits | At the end of the film: title, members' names, music and sound sources |
 | Still | One frame from the film, JPG |
 | Synopsis | Up to 100 words: question, method, finding |
-| Generation log | The completed generation log |
+| Generation log | The completed [generation log](Day_04_Fuser_Workflow/generation_log_template.csv) |
 
 # SUPPORT & RESOURCES
 
